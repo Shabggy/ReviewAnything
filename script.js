@@ -1,9 +1,22 @@
 const reviewForm = document.getElementById('submit-form');
 const reviewList = document.getElementById('review-list');
 const resetForm = document.getElementById('reset-form');
+const passwordInput = document.getElementById('password');
 
-// Load existing reviews from localStorage (if available)
-let storedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+// Function to handle potential errors during local storage access
+function getReviewsFromStorage() {
+  try {
+    // Attempt to parse JSON data from local storage
+    const reviewsJson = localStorage.getItem('reviews');
+    return JSON.parse(reviewsJson) || [];
+  } catch (error) {
+    console.error("Error loading reviews from local storage:", error);
+    return []; // Return empty array if parsing fails
+  }
+}
+
+// Load existing reviews from localStorage
+let storedReviews = getReviewsFromStorage();
 
 // Function to display a review with its replies
 function displayReview(review) {
@@ -42,7 +55,11 @@ function displayReview(review) {
     });
 
     // Update localStorage with the latest reviews and replies
-    localStorage.setItem('reviews', JSON.stringify(storedReviews));
+    try {
+      localStorage.setItem('reviews', JSON.stringify(storedReviews));
+    } catch (error) {
+      console.error("Error saving reviews to local storage:", error);
+    }
 
     // Update the reply section with the new reply
     const replyElement = document.createElement('p');
@@ -84,7 +101,11 @@ reviewForm.addEventListener('submit', function(event) {
   storedReviews.push(newReview);
 
   // Update localStorage with the latest reviews
-  localStorage.setItem('reviews', JSON.stringify(storedReviews));
+  try {
+    localStorage.setItem('reviews', JSON.stringify(storedReviews));
+  } catch (error) {
+    console.error("Error saving reviews to local storage:", error);
+  }
 
   // Create a new list item for the review
   displayReview(newReview);
@@ -96,12 +117,16 @@ reviewForm.addEventListener('submit', function(event) {
 resetForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
 
-  const password = document.getElementById('password').value;
+  const password = passwordInput.value;
 
   if (password === "helpinoob") {
     // Reset local storage
-    localStorage.removeItem('reviews');
-    storedReviews = []; // Clear storedReviews array as well
+    try {
+      localStorage.removeItem('reviews');
+      storedReviews = []; // Clear storedReviews array as well
+    } catch (error) {
+      console.error("Error removing reviews from local storage:", error);
+    }
 
     // Clear the review list
     reviewList.innerHTML = "";
@@ -109,5 +134,5 @@ resetForm.addEventListener('submit', function(event) {
     alert("Incorrect Password!");
   }
 
-  resetForm.reset(); // Clear the password field
+  passwordInput.value = ""; // Clear the password field after submission
 });
