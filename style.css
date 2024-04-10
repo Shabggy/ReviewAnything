@@ -1,60 +1,93 @@
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 20px;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
 header {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-h1, h2 {
-    margin: 0;
+h1,
+h2 {
+  margin: 0;
 }
 
 #review-form {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 #review-form label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-#review-form input, #review-form textarea {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+#review-form input,
+#review-form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
 }
 
 #review-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #reviews {
-    border: 1px solid #ddd;
-    padding: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
 }
 
 #review-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 #review-list li {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 #review-list li h3 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+#admin-panel {
+  display: flex;
+  align-items: center;
+}
+
+#admin-panel form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+#admin-panel label {
+  margin-bottom: 5px;
+}
+
+#admin-panel button {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reply-section {
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
 }
