@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Anything!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Review Anything!</h1>
-    </header>
-    <main>
-        <section id="review-form">
-            <h2>Leave a Review</h2>
-            <form id="submit-form">
-                <label for="name">Your Name (Optional):</label>
-                <input type="text" id="name" name="name" placeholder="John Doe">
-                <label for="title">Title of what you're reviewing:</label>
-                <input type="text" id="title" name="title" required>
-                <label for="rating">Rating (1-5):</label>
-                <input type="number" id="rating" name="rating" min="1" max="5" required>
-                <label for="review">Your Review:</label>
-                <textarea id="review" name="review" required></textarea>
-                <button type="submit">Submit Review</button>
-            </form>
-        </section>
-        <section id="reviews">
-            <h2>Reviews</h2>
-            <ul id="review-list">
-                </ul>
-            <li>
-              <h3>${title} - ${rating} stars</h3>
-              <p>By ${name ? name : "Anonymous"}: ${reviewText}</p>
-              <div class="reply-section"></div> </li>
 
-        </section>
-    </main>
-    <script src="script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Anything!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Review Anything!</h1>
+    <div id="admin-panel">
+      <form id="reset-form">
+        <label for="password">Admin Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Reset Reviews</button>
+      </form>
+    </div>
+  </header>
+  <main>
+    <section id="review-form">
+      <h2>Leave a Review</h2>
+      <form id="submit-form">
+        <label for="name">Your Name (Optional):</label>
+        <input type="text" id="name" name="name" placeholder="John Doe">
+        <label for="title">Title of what you're reviewing:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <label for="review">Your Review:</label>
+        <textarea id="review" name="review" required></textarea>
+        <button type="submit">Submit Review</button>
+      </form>
+    </section>
+    <section id="reviews">
+      <h2>Reviews</h2>
+      <ul id="review-list">
+      </ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
+
 </html>
